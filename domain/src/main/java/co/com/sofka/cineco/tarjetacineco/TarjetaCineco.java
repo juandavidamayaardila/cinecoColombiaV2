@@ -1,6 +1,7 @@
 package co.com.sofka.cineco.tarjetacineco;
 
 import co.com.sofka.cineco.beneficio.Beneficio;
+import co.com.sofka.cineco.beneficio.events.BeneficioCreado;
 import co.com.sofka.cineco.beneficio.values.BeneficioId;
 import co.com.sofka.cineco.beneficio.values.Descuento;
 import co.com.sofka.cineco.sala.Asiento;
@@ -13,6 +14,7 @@ import co.com.sofka.cineco.tarjetacineco.values.Estado;
 import co.com.sofka.cineco.tarjetacineco.values.TarjetaCinecoId;
 import co.com.sofka.domain.generic.AggregateEvent;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -23,10 +25,12 @@ public class TarjetaCineco extends AggregateEvent<TarjetaCinecoId> {
 
     protected Set<Beneficio> beneficios;
 
-
-    public TarjetaCineco(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado) {
+    public TarjetaCineco(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado,
+                         List<Beneficio> listBeneficio)
+    {
         super(entityId);
         appendChange(new TarjetaCinecoCreada(entityId, descripcion, estado)).apply();
+        appendChange(new BeneficioCreadoaTarjeta(listBeneficio));
     }
 
     private TarjetaCineco(TarjetaCinecoId entityId){

@@ -8,6 +8,7 @@ import co.com.sofka.cineco.sala.events.SalaCreada;
 import co.com.sofka.cineco.sala.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
+import java.util.List;
 import java.util.Set;
 
 public class Sala extends AggregateEvent<SalaId> {
@@ -15,17 +16,14 @@ public class Sala extends AggregateEvent<SalaId> {
     protected Zona zona;
     protected Set<Asiento> asientos;
 
-    public Sala(SalaId entityId, TipoSala tipoSala, AsientoId asientoId, Descripcion descripcion) {
+    public Sala(SalaId entityId, TipoSala tipoSala, List<Asiento> listAsiento) {
 
         super(entityId);
         appendChange(new SalaCreada(tipoSala)).apply();
-        appendChange(new AsientoAgregadoSala(asientoId, descripcion));
+        appendChange(new AsientoAgregadoSala(listAsiento));
 
         subscribe(new SalaChange(this));
     }
-
-
-
     public void actualizarTipoSala( TipoSala tipoSala){
         appendChange(new ActualizarTipoSala(entityId, tipoSala )).apply();
     }

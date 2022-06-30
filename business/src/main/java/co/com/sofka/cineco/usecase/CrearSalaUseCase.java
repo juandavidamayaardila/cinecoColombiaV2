@@ -17,7 +17,7 @@ public class CrearSalaUseCase extends UseCase<RequestCommand<CrearSala>, Respons
         var sala = new Sala(
                 new SalaId(),
                 command.getTipoSala(),
-                command.getAsientos()
+                command.getAsiento()
 
         );
 
