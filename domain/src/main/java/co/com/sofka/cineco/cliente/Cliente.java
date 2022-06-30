@@ -13,7 +13,9 @@ import co.com.sofka.cineco.tarjetacineco.values.Descripcion;
 import co.com.sofka.cineco.tarjetacineco.values.Estado;
 import co.com.sofka.cineco.tarjetacineco.values.TarjetaCinecoId;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Cliente extends AggregateEvent<IdentificacionCliente> {
@@ -34,6 +36,13 @@ public class Cliente extends AggregateEvent<IdentificacionCliente> {
         super(entityId);
         subscribe(new ClienteChange(this));
     }
+
+    public static Cliente from(IdentificacionCliente entityId, List<DomainEvent> eventsBy) {
+        var cliente = new Cliente(entityId);
+        eventsBy.forEach(cliente::applyEvent);
+        return cliente;
+    }
+
 
     /**
      * Pregutnar en que casos se puede hacer así?

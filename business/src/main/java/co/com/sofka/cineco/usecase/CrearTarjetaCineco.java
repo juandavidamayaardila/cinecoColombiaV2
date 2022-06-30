@@ -14,7 +14,8 @@ public class CrearTarjetaCineco extends UseCase<RequestCommand<CrearTarjeta>, Re
         var tarjeta = new TarjetaCineco(
                 new TarjetaCinecoId(),
                 command.getDescripcion(),
-                command.getEstado()
+                command.getEstado(),
+                command.getBeneficioList()
                 );
 
         emit().onResponse(new ResponseEvents(tarjeta.getUncommittedChanges()));

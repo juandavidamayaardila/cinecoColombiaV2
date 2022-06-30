@@ -2,8 +2,9 @@ package co.com.sofka.cineco.cliente.comandos;
 
 import co.com.sofka.cineco.cliente.values.IdentificacionCliente;
 import co.com.sofka.cineco.cliente.values.Nombre;
+import co.com.sofka.domain.generic.Command;
 
-public class CambiarNombre {
+public class CambiarNombre extends Command {
 
     private final IdentificacionCliente entityId;
     private final Nombre nombre;

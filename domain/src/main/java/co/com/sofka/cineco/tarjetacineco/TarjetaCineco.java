@@ -8,6 +8,7 @@ import co.com.sofka.cineco.sala.Asiento;
 import co.com.sofka.cineco.sala.values.AsientoId;
 import co.com.sofka.cineco.tarjetacineco.events.ActualizarEstadoTarjeta;
 import co.com.sofka.cineco.tarjetacineco.events.BeneficioAgregado;
+import co.com.sofka.cineco.tarjetacineco.events.BeneficioCreadoaTarjeta;
 import co.com.sofka.cineco.tarjetacineco.events.TarjetaCinecoCreada;
 import co.com.sofka.cineco.tarjetacineco.values.Descripcion;
 import co.com.sofka.cineco.tarjetacineco.values.Estado;
