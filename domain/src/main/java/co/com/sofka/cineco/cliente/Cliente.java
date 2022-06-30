@@ -1,5 +1,6 @@
 package co.com.sofka.cineco.cliente;
 
+import co.com.sofka.cineco.cliente.events.EmailCambiado;
 import co.com.sofka.cineco.cliente.events.TarjetaAgregadaCliente;
 import co.com.sofka.cineco.compra.events.AsientoAgregado;
 import co.com.sofka.cineco.cliente.events.ClienteCreado;
@@ -65,6 +66,10 @@ public class Cliente extends AggregateEvent<IdentificacionCliente> {
     public void agregarTarjeta(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado){
         appendChange(new TarjetaAgregadaCliente(entityId, descripcion, estado)).apply();
 
+    }
+
+    public void cambiarEmail(IdentificacionCliente entityId, Email email){
+        appendChange(new EmailCambiado(entityId, email));
     }
 
 

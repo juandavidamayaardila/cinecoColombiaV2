@@ -7,7 +7,9 @@ import co.com.sofka.cineco.beneficio.values.Descripcion;
 import co.com.sofka.cineco.beneficio.values.Descuento;
 import co.com.sofka.cineco.cliente.values.Nombre;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Set;
 
 public class Beneficio extends AggregateEvent<BeneficioId> {
@@ -25,6 +27,12 @@ public class Beneficio extends AggregateEvent<BeneficioId> {
     private Beneficio(BeneficioId entityId){
         super(entityId);
         subscribe(new BeneficioChange(this));
+    }
+
+    public static Beneficio from (BeneficioId entityId, List<DomainEvent> eventsBy){
+        var beneficio = new Beneficio( entityId);
+        eventsBy.forEach(beneficio::applyEvent);
+        return  beneficio;
     }
 
     public void actualizarDescuento(BeneficioId beneficioId, Descuento descuento){
