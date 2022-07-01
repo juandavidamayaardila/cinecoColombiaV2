@@ -12,7 +12,7 @@ import co.com.sofka.cineco.cliente.values.Nombre;
 
 public class CrearClienteUseCase extends UseCase<RequestCommand<CrearCliente>, ResponseEvents> {
 
-    public void executeUseCase(RequestCommand<CrearCliente> crearClienteComandRequestCommand){
+    public void executeUseCase(RequestCommand<CrearCliente> crearClienteComandRequestCommand) {
         var comand = crearClienteComandRequestCommand.getCommand();
         var cliente = new Cliente(
                 comand.getEntityId(),

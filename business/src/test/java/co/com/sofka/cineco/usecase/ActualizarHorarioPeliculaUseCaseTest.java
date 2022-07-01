@@ -33,12 +33,12 @@ class ActualizarHorarioPeliculaUseCaseTest {
     ActualizarHorarioPeliculaUseCase usecase;
 
     @Test
-    public void actualizarHorarioPelicula(){
+    public void actualizarHorarioPelicula() {
 
         PeliculaId entityId = new PeliculaId();
         Horario horario = new Horario("En la noche");
 
-        var command = new ActualizarHorarioPelicula( entityId,  horario);
+        var command = new ActualizarHorarioPelicula(entityId, horario);
 
         when(repository.getEventsBy(entityId.value())).thenReturn(history());
         usecase.addRepository(repository);
@@ -51,14 +51,14 @@ class ActualizarHorarioPeliculaUseCaseTest {
 
     }
 
-    private List<DomainEvent> history(){
+    private List<DomainEvent> history() {
 
         co.com.sofka.cineco.cliente.values.Nombre nombre = new Nombre("Its");
         Horario horario = new Horario("En la mañana");
         Sinopsis sinopsis = new Sinopsis("Pelicula no apta para niños");
 
         return List.of(
-                new PeliculaCreada(nombre,sinopsis)
+                new PeliculaCreada(nombre, sinopsis)
         );
     }
 }

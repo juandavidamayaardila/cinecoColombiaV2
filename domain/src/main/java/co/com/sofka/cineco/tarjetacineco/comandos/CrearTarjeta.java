@@ -1,6 +1,7 @@
 package co.com.sofka.cineco.tarjetacineco.comandos;
 
-import co.com.sofka.cineco.beneficio.Beneficio;
+
+import co.com.sofka.cineco.tarjetacineco.values.Beneficio;
 import co.com.sofka.cineco.tarjetacineco.values.Descripcion;
 import co.com.sofka.cineco.tarjetacineco.values.Estado;
 import co.com.sofka.cineco.tarjetacineco.values.TarjetaCinecoId;

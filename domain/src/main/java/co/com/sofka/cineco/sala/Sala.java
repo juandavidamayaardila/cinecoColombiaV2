@@ -1,6 +1,6 @@
 package co.com.sofka.cineco.sala;
 
-import co.com.sofka.cineco.beneficio.Beneficio;
+
 import co.com.sofka.cineco.cliente.Cliente;
 import co.com.sofka.cineco.compra.events.AsientoAgregado;
 import co.com.sofka.cineco.sala.events.ActualizarTipoSala;
@@ -33,8 +33,8 @@ public class Sala extends AggregateEvent<SalaId> {
         appendChange(new ActualizarTipoSala(entityId, tipoSala )).apply();
     }
 
-    public void agregarAsientos(AsientoId entityId, Descripcion descripcion){
-        appendChange(new AsientoAgregado(entityId, descripcion));
+    public void agregarAsientos(Asiento asiento){
+        appendChange(new AsientoAgregado(asiento));
     }
 
     public Set<Asiento> getAsientos() {

@@ -10,7 +10,7 @@ import co.com.sofka.cineco.compra.values.CompraId;
 import co.com.sofka.cineco.compra.values.Fecha;
 import co.com.sofka.cineco.pelicula.values.PeliculaId;
 import co.com.sofka.cineco.pelicula.values.Sinopsis;
-import co.com.sofka.cineco.sala.Asiento;
+import co.com.sofka.cineco.sala.values.Asiento;
 import co.com.sofka.cineco.sala.values.AsientoId;
 import co.com.sofka.cineco.sala.values.Descripcion;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -59,9 +59,9 @@ public class Compra extends AggregateEvent<CompraId> {
         return compra;
     }
 
-    public void agregarAsiento(AsientoId entityId, Descripcion descripcion){
-        Objects.requireNonNull(entityId);
-        appendChange(new AsientoAgregado(entityId, descripcion)).apply();
+    public void agregarAsiento(Asiento asiento){
+        Objects.requireNonNull(asiento.value());
+        appendChange(new AsientoAgregado(asiento)).apply();
     }
 
     public void agregarPelicula(PeliculaId entityId, Nombre nombre, Sinopsis sinopsis){
@@ -72,12 +72,13 @@ public class Compra extends AggregateEvent<CompraId> {
         appendChange(new FechaActualizada(compraId, fecha)).apply();
     }
 
+    /*
     public Optional<Asiento> getAsientoPorId(AsientoId entityId){
         return asientos
                 .stream()
                 .filter(asiento -> asiento.identity().equals(entityId))
                 .findFirst();
-    }
+    }*/
 
     public Set<Asiento> asientos() {
         return asientos;

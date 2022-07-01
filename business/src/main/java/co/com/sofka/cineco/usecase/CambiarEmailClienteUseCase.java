@@ -5,11 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.cineco.cliente.Cliente;
 import co.com.sofka.cineco.cliente.comandos.CambiarEmail;
-import co.com.sofka.cineco.cliente.comandos.CambiarNombre;
+
 
 public class CambiarEmailClienteUseCase extends UseCase<RequestCommand<CambiarEmail>, ResponseEvents> {
-
-
 
     public void executeUseCase(RequestCommand<CambiarEmail> cambiarEmailRequestCommand) {
         var command = cambiarEmailRequestCommand.getCommand();

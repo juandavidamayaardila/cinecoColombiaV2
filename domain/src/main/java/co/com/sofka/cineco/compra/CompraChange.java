@@ -5,11 +5,10 @@ import co.com.sofka.cineco.compra.events.CompraRealizada;
 import co.com.sofka.cineco.compra.events.FechaActualizada;
 import co.com.sofka.cineco.compra.events.PeliculaAgregada;
 import co.com.sofka.cineco.pelicula.values.PeliculaId;
-import co.com.sofka.cineco.sala.Asiento;
+import co.com.sofka.cineco.sala.values.Asiento;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
-import java.util.Optional;
 
 public class CompraChange extends EventChange {
 
@@ -38,10 +37,7 @@ public class CompraChange extends EventChange {
             if(numeroAsientos == 6){
                 throw new IllegalArgumentException("No puede comprar mas asientos para esta pelicula");
             }
-            compra.asientos.add(new Asiento(
-             event.getEntityId(),
-                    event.getDescripcion()
-            ));
+            compra.asientos.add(new Asiento(event.asiento().value().toString()));
         });
 
         apply((FechaActualizada event) ->{

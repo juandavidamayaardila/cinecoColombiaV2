@@ -1,7 +1,5 @@
 package co.com.sofka.cineco.tarjetacineco;
 
-import co.com.sofka.cineco.beneficio.Beneficio;
-import co.com.sofka.cineco.beneficio.events.BeneficioCreado;
 import co.com.sofka.cineco.tarjetacineco.events.ActualizarEstadoTarjeta;
 import co.com.sofka.cineco.tarjetacineco.events.BeneficioAgregado;
 import co.com.sofka.cineco.tarjetacineco.events.TarjetaCinecoCreada;
@@ -20,13 +18,6 @@ public class TarjetaCinecoChange extends EventChange {
             tarjetaCineco.estado = event.getEstado();
         });
 
-        apply((BeneficioAgregado event) ->{
-            //realizamos validaciones de negocio como que maximo tenga 3 beneficios
-            tarjetaCineco.beneficios.add(new Beneficio(
-                    event.getEntityId(),
-                    event.getDescripcion(),
-                    event.getDescuento()
-            ));
-        });
+
     }
 }

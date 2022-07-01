@@ -8,8 +8,6 @@ import co.com.sofka.cineco.cliente.comandos.CambiarNombre;
 
 public class CambiarNombreClienteUseCase extends UseCase<RequestCommand<CambiarNombre>, ResponseEvents> {
 
-
-
     public void executeUseCase(RequestCommand<CambiarNombre> cambiarNombreRequestCommand) {
         var command = cambiarNombreRequestCommand.getCommand();
         var cliente = Cliente.from(command.getEntityId(), repository()

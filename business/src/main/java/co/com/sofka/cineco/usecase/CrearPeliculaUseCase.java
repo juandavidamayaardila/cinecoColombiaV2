@@ -9,8 +9,6 @@ import co.com.sofka.cineco.pelicula.values.PeliculaId;
 
 public class CrearPeliculaUseCase extends UseCase<RequestCommand<CrearPelicula>, ResponseEvents> {
 
-
-
     public void executeUseCase(RequestCommand<CrearPelicula> crearPeliculaRequestCommand) {
         var command = crearPeliculaRequestCommand.getCommand();
         var pelicula = new Pelicula(

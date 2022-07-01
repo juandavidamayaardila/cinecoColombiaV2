@@ -1,8 +1,6 @@
 package co.com.sofka.cineco.sala.events;
 
-import co.com.sofka.cineco.sala.Asiento;
-import co.com.sofka.cineco.sala.values.AsientoId;
-import co.com.sofka.cineco.sala.values.Descripcion;
+import co.com.sofka.cineco.sala.values.Asiento;
 import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;

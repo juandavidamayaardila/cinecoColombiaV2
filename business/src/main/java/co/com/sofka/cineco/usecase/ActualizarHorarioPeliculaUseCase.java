@@ -11,7 +11,7 @@ public class ActualizarHorarioPeliculaUseCase extends UseCase<RequestCommand<Act
     @Override
     public void executeUseCase(RequestCommand<ActualizarHorarioPelicula> actualizarHorarioPeliculaRequestCommand) {
         var command = actualizarHorarioPeliculaRequestCommand.getCommand();
-        var pelicula =  Pelicula.from(command.getEntityId(), repository()
+        var pelicula = Pelicula.from(command.getEntityId(), repository()
                 .getEventsBy(command.getEntityId().value()));
 
         pelicula.actualizarHorarioPelicula(command.getEntityId(), command.getHorario());

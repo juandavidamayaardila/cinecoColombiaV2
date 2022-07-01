@@ -29,36 +29,35 @@ class CambiarEmailClienteUseCaseTest {
 
     @Mock
     DomainEventRepository repository;
-
     @InjectMocks
     CambiarEmailClienteUseCase usecase;
 
     @Test
-    public void cambiarEmailCliente(){
-    IdentificacionCliente entityId = IdentificacionCliente.of(IdentificacionCliente.Type.CC,"1094");
-    Nombre nombre = new Nombre("juan");
-    Email email = new Email("david@gmail.com");
+    public void cambiarEmailCliente() {
+        IdentificacionCliente entityId = IdentificacionCliente.of(IdentificacionCliente.Type.CC, "1094");
+        Nombre nombre = new Nombre("juan");
+        Email email = new Email("david@gmail.com");
 
-    var command = new CambiarEmail( entityId,  email);
+        var command = new CambiarEmail(entityId, email);
 
-    when(repository.getEventsBy(entityId.value())).thenReturn(history());
+        when(repository.getEventsBy(entityId.value())).thenReturn(history());
         usecase.addRepository(repository);
 
-    var events = UseCaseHandler
-            .getInstance().syncExecutor(usecase, new RequestCommand<>(command))
-            .orElseThrow()
-            .getDomainEvents();
+        var events = UseCaseHandler
+                .getInstance().syncExecutor(usecase, new RequestCommand<>(command))
+                .orElseThrow()
+                .getDomainEvents();
 
-    var event = (EmailCambiado)events.get(0);
-        Assertions.assertEquals("david@gmail.com",event.getEmail().value());
+        var event = (EmailCambiado) events.get(0);
+        Assertions.assertEquals("david@gmail.com", event.getEmail().value());
 
-}
+    }
 
-    private List<DomainEvent> history(){
+    private List<DomainEvent> history() {
         Nombre nombre = new Nombre("David");
         Email email = new Email("juan@gmail.com");
         return List.of(
-                new ClienteCreado(nombre,email)
+                new ClienteCreado(nombre, email)
         );
     }
 }

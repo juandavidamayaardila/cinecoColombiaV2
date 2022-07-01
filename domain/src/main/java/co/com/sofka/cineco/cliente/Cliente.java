@@ -1,23 +1,15 @@
 package co.com.sofka.cineco.cliente;
 
-import co.com.sofka.cineco.cliente.events.EmailCambiado;
-import co.com.sofka.cineco.cliente.events.TarjetaAgregadaCliente;
-import co.com.sofka.cineco.compra.events.AsientoAgregado;
-import co.com.sofka.cineco.cliente.events.ClienteCreado;
-import co.com.sofka.cineco.cliente.events.NombreCambiado;
-import co.com.sofka.cineco.compra.events.PeliculaAgregada;
+import co.com.sofka.cineco.cliente.events.*;
 import co.com.sofka.cineco.cliente.values.*;
-import co.com.sofka.cineco.pelicula.values.PeliculaId;
-import co.com.sofka.cineco.pelicula.values.Sinopsis;
-import co.com.sofka.cineco.sala.values.AsientoId;
-import co.com.sofka.cineco.tarjetacineco.values.Descripcion;
-import co.com.sofka.cineco.tarjetacineco.values.Estado;
 import co.com.sofka.cineco.tarjetacineco.values.TarjetaCinecoId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 public class Cliente extends AggregateEvent<IdentificacionCliente> {
 
@@ -26,14 +18,19 @@ public class Cliente extends AggregateEvent<IdentificacionCliente> {
     protected Domicilio domicilio;
     protected FechaCumplenos fechaCumplenos;
 
-    protected TarjetaCinecoId tarjetaCinecoId;
+    protected TarjetaCinecoId tarjetaCineco;
 
-    public Cliente(IdentificacionCliente entityId, Nombre nombre,  Email email) {
+    protected Set<Preferencia> preferencias;
+
+    protected Set<DiasFrecuenta> frecuentas;
+
+
+    public Cliente(IdentificacionCliente entityId, Nombre nombre, Email email) {
         super(entityId);
         appendChange(new ClienteCreado(nombre, email)).apply();
     }
 
-    private Cliente(IdentificacionCliente entityId){
+    private Cliente(IdentificacionCliente entityId) {
         super(entityId);
         subscribe(new ClienteChange(this));
     }
@@ -45,31 +42,46 @@ public class Cliente extends AggregateEvent<IdentificacionCliente> {
     }
 
 
-    /**
-     * Pregutnar en que casos se puede hacer así?
-     *
-     * @param email
-     */
-    public void actualizarEmail(Email email){
-        this.email = Objects.requireNonNull(email);
+    public void cambiarNombre(IdentificacionCliente entityId, Nombre nombre) {
+        appendChange(new NombreCambiado(entityId, nombre)).apply();
     }
 
-    public void actualizarDomicilio(Domicilio domicilio){
-        this.domicilio = Objects.requireNonNull(domicilio);
-    }
-
-
-    public void cambiarNombre(IdentificacionCliente entityId,Nombre nombre){
-        appendChange(new NombreCambiado(entityId,nombre)).apply();
-    }
-
-    public void agregarTarjeta(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado){
-        appendChange(new TarjetaAgregadaCliente(entityId, descripcion, estado)).apply();
+    public void agregarTarjeta( TarjetaCinecoId tarjeta) {
+        appendChange(new TarjetaAgregada(tarjeta)).apply();
 
     }
 
-    public void cambiarEmail(IdentificacionCliente entityId, Email email){
+    public void agregarPreferencias(PreferenciaId entityId, DescripcionPreferencia descripcionPreferencia){
+        Objects.requireNonNull(entityId);
+        Objects.requireNonNull(descripcionPreferencia);
+
+        appendChange(new PreferenciaAgregada( entityId,  descripcionPreferencia)).apply();
+    }
+
+    public void agregarDiasFrecuenta(FrecuentaId entityId, DescripcionFrecuenta descripcionFrecuenta){
+        Objects.requireNonNull(entityId);
+        Objects.requireNonNull(descripcionFrecuenta);
+        appendChange(new DiasFrecuentaAgregada(entityId, descripcionFrecuenta));
+    }
+
+    public void cambiarEmail(IdentificacionCliente entityId, Email email) {
         appendChange(new EmailCambiado(entityId, email));
+    }
+
+    public void agregarDomicilio(IdentificacionCliente entityId, Domicilio domicilio) {
+        appendChange(new DomicilioAgregado(entityId, domicilio));
+    }
+
+    protected Optional<Preferencia> getPreferenciaPoId(PreferenciaId edentity){
+        return preferencias
+                .stream()
+                .filter( preferencia -> preferencia.identity().equals(edentity)).findFirst();
+    }
+
+    protected Optional<DiasFrecuenta> getFrecuentaPoId(PreferenciaId edentity){
+        return frecuentas
+                .stream()
+                .filter( frecuenta -> frecuenta.identity().equals(edentity)).findFirst();
     }
 
 
@@ -89,5 +101,15 @@ public class Cliente extends AggregateEvent<IdentificacionCliente> {
         return fechaCumplenos;
     }
 
+    public TarjetaCinecoId tarjetaCineco() {
+        return tarjetaCineco;
+    }
 
+    public Set<DiasFrecuenta> frecuentas() {
+        return frecuentas;
+    }
+
+    public Set<Preferencia> preferencias() {
+        return preferencias;
+    }
 }

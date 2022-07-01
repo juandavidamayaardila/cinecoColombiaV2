@@ -1,6 +1,7 @@
 package co.com.sofka.cineco.tarjetacineco.events;
 
-import co.com.sofka.cineco.beneficio.Beneficio;
+
+import co.com.sofka.cineco.tarjetacineco.values.Beneficio;
 import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;

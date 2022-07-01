@@ -16,7 +16,7 @@ public class CrearTarjetaCineco extends UseCase<RequestCommand<CrearTarjeta>, Re
                 command.getDescripcion(),
                 command.getEstado(),
                 command.getBeneficioList()
-                );
+        );
 
         emit().onResponse(new ResponseEvents(tarjeta.getUncommittedChanges()));
     }

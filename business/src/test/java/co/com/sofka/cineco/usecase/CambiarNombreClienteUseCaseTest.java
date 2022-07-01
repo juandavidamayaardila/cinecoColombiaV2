@@ -33,12 +33,12 @@ class CambiarNombreClienteUseCaseTest {
     CambiarNombreClienteUseCase usecase;
 
     @Test
-    public void cambiarNombreCliente(){
+    public void cambiarNombreCliente() {
 
-        IdentificacionCliente entityId = IdentificacionCliente.of(IdentificacionCliente.Type.CC,"1094");
+        IdentificacionCliente entityId = IdentificacionCliente.of(IdentificacionCliente.Type.CC, "1094");
         Nombre nombre = new Nombre("juan");
 
-        var command = new CambiarNombre( entityId,  nombre);
+        var command = new CambiarNombre(entityId, nombre);
 
         when(repository.getEventsBy(entityId.value())).thenReturn(history());
         usecase.addRepository(repository);
@@ -48,16 +48,16 @@ class CambiarNombreClienteUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (NombreCambiado)events.get(0);
-        Assertions.assertEquals("juan",event.getNombre().value());
+        var event = (NombreCambiado) events.get(0);
+        Assertions.assertEquals("juan", event.getNombre().value());
 
     }
 
-    private List<DomainEvent> history(){
+    private List<DomainEvent> history() {
         Nombre nombre = new Nombre("David");
         Email email = new Email("juan@gmail.com");
         return List.of(
-                new ClienteCreado(nombre,email)
+                new ClienteCreado(nombre, email)
         );
     }
 }

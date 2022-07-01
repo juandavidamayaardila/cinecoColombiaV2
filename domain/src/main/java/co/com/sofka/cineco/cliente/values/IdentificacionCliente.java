@@ -1,6 +1,6 @@
 package co.com.sofka.cineco.cliente.values;
 
-import co.com.sofka.cineco.beneficio.values.BeneficioId;
+
 import co.com.sofka.domain.generic.Identity;
 import co.com.sofka.domain.generic.ValueObject;
 

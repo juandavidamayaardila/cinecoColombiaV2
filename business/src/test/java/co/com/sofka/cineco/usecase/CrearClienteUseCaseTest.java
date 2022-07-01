@@ -23,19 +23,20 @@ class CrearClienteUseCaseTest {
 
     @InjectMocks
     CrearClienteUseCase useCase;
+
     @Test
-    public void crearCliente(){
-        IdentificacionCliente entityId = IdentificacionCliente.of(IdentificacionCliente.Type.CC,"1094");
+    public void crearCliente() {
+        IdentificacionCliente entityId = IdentificacionCliente.of(IdentificacionCliente.Type.CC, "1094");
         Nombre nombre = new Nombre("juan");
         Email email = new Email("juan@gmail.com");
-        var command = new CrearCliente( entityId,  nombre,  email);
+        var command = new CrearCliente(entityId, nombre, email);
 
-       var events = UseCaseHandler.getInstance()
+        var events = UseCaseHandler.getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
-               .orElseThrow()
-               .getDomainEvents();
+                .orElseThrow()
+                .getDomainEvents();
 
-       var event = (ClienteCreado)events.get(0);
+        var event = (ClienteCreado) events.get(0);
         Assertions.assertEquals("juan", event.getNombre().value());
 
 

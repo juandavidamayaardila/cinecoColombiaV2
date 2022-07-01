@@ -1,30 +1,33 @@
 package co.com.sofka.cineco.cliente.comandos;
 
+import co.com.sofka.cineco.cliente.events.TarjetaAgregada;
+import co.com.sofka.cineco.cliente.values.IdentificacionCliente;
+import co.com.sofka.cineco.tarjetacineco.TarjetaCineco;
+import co.com.sofka.cineco.tarjetacineco.values.Beneficio;
 import co.com.sofka.cineco.tarjetacineco.values.Descripcion;
 import co.com.sofka.cineco.tarjetacineco.values.Estado;
 import co.com.sofka.cineco.tarjetacineco.values.TarjetaCinecoId;
+import co.com.sofka.domain.generic.Command;
 
-public class AgregarTarjeta {
+import java.util.List;
 
-    private final TarjetaCinecoId entityId;
-    private final Descripcion descripcion;
-    private final Estado estado;
+public class AgregarTarjeta extends Command {
 
-    public AgregarTarjeta(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado){
+    private final IdentificacionCliente entityId;
+
+    private final TarjetaCinecoId  tarjetaCinecoId;
+
+    public AgregarTarjeta(IdentificacionCliente entityId, TarjetaCinecoId tarjetaCinecoId){
         this.entityId = entityId;
-        this.descripcion = descripcion;
-        this.estado = estado;
+        this.tarjetaCinecoId = tarjetaCinecoId;
+
     }
 
-    public TarjetaCinecoId getEntityId() {
+    public IdentificacionCliente getEntityId() {
         return entityId;
     }
 
-    public Descripcion getDescripcion() {
-        return descripcion;
-    }
-
-    public Estado getEstado() {
-        return estado;
+    public TarjetaCinecoId getTarjetaCinecoId() {
+        return tarjetaCinecoId;
     }
 }
