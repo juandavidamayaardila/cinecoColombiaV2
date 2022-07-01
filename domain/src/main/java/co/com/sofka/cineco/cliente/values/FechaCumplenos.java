@@ -4,15 +4,15 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class FechaCumplenos implements ValueObject<String > {
+public class FechaCumplenos implements ValueObject<String> {
 
     private final String value;
 
-    public FechaCumplenos(String value){
+    public FechaCumplenos(String value) {
         this.value = value;
 
-        if(this.value.length() < 10){
-            throw  new IllegalArgumentException("Por favor ingrese un FechaCumplenos valido");
+        if (this.value.length() < 10) {
+            throw new IllegalArgumentException("Por favor ingrese un FechaCumplenos valido");
         }
     }
 

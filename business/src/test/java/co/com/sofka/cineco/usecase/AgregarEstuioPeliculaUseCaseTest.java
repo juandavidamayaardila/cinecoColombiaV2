@@ -34,11 +34,11 @@ class AgregarEstuioPeliculaUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarEstudioApelicula(){
+    void agregarEstudioApelicula() {
         var peliculaId = PeliculaId.of("123");
         NombreEstudio nombre = new NombreEstudio("Marvel");
         Sinopsis sinopsis = new Sinopsis("No apta para niños");
-        var command = new AgregarEstudio(peliculaId, nombre );
+        var command = new AgregarEstudio(peliculaId, nombre);
 
         when(repository.getEventsBy("123")).thenReturn(history());
         useCase.addRepository(repository);
@@ -49,7 +49,7 @@ class AgregarEstuioPeliculaUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (EstudioAgregado)events.get(0);
+        var event = (EstudioAgregado) events.get(0);
         Assertions.assertEquals("Marvel", event.getNombreEstudio().value());
     }
 
@@ -61,7 +61,7 @@ class AgregarEstuioPeliculaUseCaseTest {
                 nombre,
                 sinopsis
         );
-       // event.setAggregateRootId("xxxxx");
+        // event.setAggregateRootId("xxxxx");
         return List.of(event);
     }
 }

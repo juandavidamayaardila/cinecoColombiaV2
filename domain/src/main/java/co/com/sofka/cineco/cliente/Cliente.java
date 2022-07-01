@@ -18,6 +18,7 @@ import java.util.Set;
 public class Cliente extends AggregateEvent<IdentificacionCliente> {
 
     protected Nombre nombre;
+
     protected Email email;
     protected Domicilio domicilio;
     protected FechaCumplenos fechaCumplenos;

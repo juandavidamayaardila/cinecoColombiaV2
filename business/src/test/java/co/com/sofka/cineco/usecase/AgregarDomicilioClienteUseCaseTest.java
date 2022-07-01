@@ -54,6 +54,4 @@ class AgregarDomicilioClienteUseCaseTest {
         Assertions.assertEquals("Modelo Mz B casa 19", event.getDomicilio().value());
 
     }
-
-
 }

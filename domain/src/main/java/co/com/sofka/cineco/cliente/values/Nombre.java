@@ -8,11 +8,11 @@ public class Nombre implements ValueObject<String> {
 
     private final String value;
 
-    public Nombre(String value){
+    public Nombre(String value) {
         this.value = value;
 
-        if(this.value.length() < 3){
-            throw  new IllegalArgumentException("Por favor ingrese un Nombre valido");
+        if (this.value.length() < 3) {
+            throw new IllegalArgumentException("Por favor ingrese un Nombre valido");
         }
     }
 

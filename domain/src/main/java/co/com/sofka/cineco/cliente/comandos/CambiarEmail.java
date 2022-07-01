@@ -9,7 +9,7 @@ public class CambiarEmail extends Command {
     private final IdentificacionCliente entityId;
     private final Email email;
 
-    public CambiarEmail(IdentificacionCliente entityId, Email email){
+    public CambiarEmail(IdentificacionCliente entityId, Email email) {
         this.entityId = entityId;
         this.email = email;
     }

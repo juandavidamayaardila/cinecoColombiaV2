@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Preferencia extends Entity<PreferenciaId> {
 
-    protected   DescripcionPreferencia descripcionPreferencia;
+    protected DescripcionPreferencia descripcionPreferencia;
 
     public Preferencia(PreferenciaId entityId, DescripcionPreferencia descripcionPreferencia) {
         super(entityId);
@@ -19,7 +19,7 @@ public class Preferencia extends Entity<PreferenciaId> {
         return descripcionPreferencia;
     }
 
-    public void actualizarDescripcion(DescripcionPreferencia descripcionPreferencia){
+    public void actualizarDescripcion(DescripcionPreferencia descripcionPreferencia) {
         this.descripcionPreferencia = Objects.requireNonNull(descripcionPreferencia);
     }
 }

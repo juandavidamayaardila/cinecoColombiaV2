@@ -20,7 +20,6 @@ public class CrearSalaUseCase extends UseCase<RequestCommand<CrearSala>, Respons
                 command.getAsiento()
 
         );
-
         emit().onResponse(new ResponseEvents(sala.getUncommittedChanges()));
     }
 }

@@ -21,7 +21,7 @@ public class TarjetaAgregada extends DomainEvent {
     private final List<Beneficio> listBeneficio;
 
 
-    public TarjetaAgregada(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado, List<Beneficio> listBeneficio){
+    public TarjetaAgregada(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado, List<Beneficio> listBeneficio) {
 
         super("sofka.cliente.tarjetaagregada");
 

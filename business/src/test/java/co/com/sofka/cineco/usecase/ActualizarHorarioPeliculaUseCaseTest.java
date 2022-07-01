@@ -48,13 +48,11 @@ class ActualizarHorarioPeliculaUseCaseTest {
                 .getInstance().syncExecutor(usecase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
-
-
     }
 
     private List<DomainEvent> history() {
 
-        NombrePelicula nombre = new NombrePelicula("Its");
+        NombrePelicula nombre = new NombrePelicula("Its el carma");
         Horario horario = new Horario("En la mañana");
         Sinopsis sinopsis = new Sinopsis("Pelicula no apta para niños");
 

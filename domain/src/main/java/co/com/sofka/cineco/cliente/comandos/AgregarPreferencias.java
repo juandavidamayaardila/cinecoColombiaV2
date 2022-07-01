@@ -10,7 +10,7 @@ public class AgregarPreferencias extends Command {
     private final PreferenciaId preferenciaId;
     private final DescripcionPreferencia descripcionPreferencia;
 
-    public AgregarPreferencias(PreferenciaId entityId, DescripcionPreferencia descripcionPreferencia){
+    public AgregarPreferencias(PreferenciaId entityId, DescripcionPreferencia descripcionPreferencia) {
         this.preferenciaId = entityId;
         this.descripcionPreferencia = descripcionPreferencia;
     }

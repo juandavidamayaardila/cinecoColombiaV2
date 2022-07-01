@@ -50,6 +50,7 @@ class CambiarEmailClienteUseCaseTest {
 
         var event = (EmailCambiado) events.get(0);
         Assertions.assertEquals("david@gmail.com", event.getEmail().value());
+        Assertions.assertEquals("CC-1094", event.getEntityId().value());
 
     }
 

@@ -22,25 +22,24 @@ public class TarjetaCineco extends AggregateEvent<TarjetaCinecoId> {
     protected Set<Beneficio> beneficios;
 
     public TarjetaCineco(TarjetaCinecoId entityId, Descripcion descripcion, Estado estado,
-                         List<Beneficio> listBeneficio)
-    {
+                         List<Beneficio> listBeneficio) {
 
         super(entityId);
         appendChange(new TarjetaCinecoCreada(entityId, descripcion, estado)).apply();
         appendChange(new BeneficioCreadoaTarjeta(listBeneficio));
     }
 
-    private TarjetaCineco(TarjetaCinecoId entityId){
+    private TarjetaCineco(TarjetaCinecoId entityId) {
         super(entityId);
         subscribe(new TarjetaCinecoChange(this));
     }
 
-    public void actualizarEstadoTarjeta(TarjetaCinecoId entityId,  Estado estado){
+    public void actualizarEstadoTarjeta(TarjetaCinecoId entityId, Estado estado) {
         appendChange(new ActualizarEstadoTarjeta(entityId, estado)).apply();
     }
 
-    public void agregarBeneficio( Beneficio beneficio){
-        appendChange(new BeneficioAgregado( beneficio)).apply();
+    public void agregarBeneficio(Beneficio beneficio) {
+        appendChange(new BeneficioAgregado(beneficio)).apply();
     }
 
     /*

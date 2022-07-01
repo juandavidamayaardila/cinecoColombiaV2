@@ -21,7 +21,7 @@ public class AgregarTarjeta extends Command {
     private List<Beneficio> beneficios;
 
     public AgregarTarjeta(IdentificacionCliente entityId, Descripcion descripcion, Estado estado,
-                          List<Beneficio> beneficios){
+                          List<Beneficio> beneficios) {
         this.entityId = entityId;
         this.descripcion = descripcion;
         this.estado = estado;

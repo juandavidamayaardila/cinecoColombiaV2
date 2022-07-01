@@ -10,15 +10,15 @@ import co.com.sofka.domain.generic.Command;
 import java.util.List;
 
 public class CrearTarjeta extends Command {
-    
-  //  private final TarjetaCinecoId entityId;
+
+    //  private final TarjetaCinecoId entityId;
     private final Descripcion descripcion;
     private final Estado estado;
 
-    private  final List<Beneficio> beneficioList;
-    
-    public CrearTarjeta(Descripcion descripcion, Estado estado, List<Beneficio> beneficioList){
-       // this.entityId = entityId;
+    private final List<Beneficio> beneficioList;
+
+    public CrearTarjeta(Descripcion descripcion, Estado estado, List<Beneficio> beneficioList) {
+        // this.entityId = entityId;
         this.descripcion = descripcion;
         this.estado = estado;
         this.beneficioList = beneficioList;

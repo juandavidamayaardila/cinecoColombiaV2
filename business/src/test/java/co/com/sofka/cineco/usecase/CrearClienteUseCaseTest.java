@@ -38,7 +38,7 @@ class CrearClienteUseCaseTest {
 
         var event = (ClienteCreado) events.get(0);
         Assertions.assertEquals("juan", event.getNombre().value());
-
+        Assertions.assertEquals("uan@gmail.com", event.getEmail().value());
 
     }
 }

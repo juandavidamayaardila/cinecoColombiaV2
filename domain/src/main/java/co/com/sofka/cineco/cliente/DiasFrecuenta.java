@@ -19,7 +19,7 @@ public class DiasFrecuenta extends Entity<FrecuentaId> {
         return descripcionFrecuenta;
     }
 
-    public void actualizarDiasFrencuenta(DescripcionFrecuenta descripcionFrecuenta){
+    public void actualizarDiasFrencuenta(DescripcionFrecuenta descripcionFrecuenta) {
         this.descripcionFrecuenta = descripcionFrecuenta;
     }
 }

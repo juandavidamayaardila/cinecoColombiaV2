@@ -9,7 +9,7 @@ public class CambiarNombre extends Command {
     private final IdentificacionCliente entityId;
     private final Nombre nombre;
 
-    public CambiarNombre(IdentificacionCliente entityId, Nombre nombre){
+    public CambiarNombre(IdentificacionCliente entityId, Nombre nombre) {
         this.entityId = entityId;
         this.nombre = nombre;
     }

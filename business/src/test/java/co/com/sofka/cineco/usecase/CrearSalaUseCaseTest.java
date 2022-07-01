@@ -46,6 +46,5 @@ class CrearSalaUseCaseTest {
         var event = (SalaCreada) events.get(0);
         Assertions.assertEquals("2k full HD", event.getTipoSala().value());
 
-
     }
 }

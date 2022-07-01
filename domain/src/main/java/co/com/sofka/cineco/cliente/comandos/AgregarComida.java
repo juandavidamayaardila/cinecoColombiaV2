@@ -9,7 +9,7 @@ public class AgregarComida extends Command {
     private final ComidaId comidaId;
     private final DescripcionComida descripcionComida;
 
-    public AgregarComida(ComidaId entityId, DescripcionComida descripcionComida){
+    public AgregarComida(ComidaId entityId, DescripcionComida descripcionComida) {
         this.comidaId = entityId;
         this.descripcionComida = descripcionComida;
     }

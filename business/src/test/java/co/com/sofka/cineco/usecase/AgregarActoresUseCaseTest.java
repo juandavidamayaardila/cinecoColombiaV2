@@ -32,11 +32,11 @@ class AgregarActoresUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarActoresPelicula(){
+    void agregarActoresPelicula() {
         var peliculaId = PeliculaId.of("123");
         NombreActor nombre = new NombreActor("Brand Pet");
         TipoActor tipoActor = new TipoActor("Protagonista");
-        var command = new AgregarActores(peliculaId,nombre, tipoActor );
+        var command = new AgregarActores(peliculaId, nombre, tipoActor);
 
         when(repository.getEventsBy("123")).thenReturn(history());
         useCase.addRepository(repository);
@@ -47,7 +47,7 @@ class AgregarActoresUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (ActoresAgregados)events.get(0);
+        var event = (ActoresAgregados) events.get(0);
         Assertions.assertEquals("Brand Pet", event.getNombreActor().value());
     }
 

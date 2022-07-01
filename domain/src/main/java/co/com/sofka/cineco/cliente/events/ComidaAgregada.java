@@ -8,6 +8,7 @@ public class ComidaAgregada extends DomainEvent {
 
     private final ComidaId comidaId;
     private final DescripcionComida descripcionComida;
+
     public ComidaAgregada(ComidaId entityId, DescripcionComida descripcionComida) {
         super("sofka.cliente.comidaagregada");
         this.comidaId = entityId;

@@ -15,12 +15,16 @@ import java.util.Set;
 public class Pelicula extends AggregateEvent<PeliculaId> {
 
     protected Duracion duracion;
+
     protected Genero genero;
     protected Horario horario;
+
     protected NombrePelicula nombre;
+
     protected Sinopsis sinopsis;
 
     protected Set<Actor> actores;
+
     protected Set<Idioma> idiomas;
     protected Estudio estudio;
 

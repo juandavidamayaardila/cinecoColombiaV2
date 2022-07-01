@@ -4,12 +4,14 @@ import co.com.sofka.domain.generic.Identity;
 
 public class FrecuentaId extends Identity {
 
-    public FrecuentaId(){}
-    private FrecuentaId(String id){
+    public FrecuentaId() {
+    }
+
+    private FrecuentaId(String id) {
         super(id);
     }
 
-    public static FrecuentaId of(String id){
+    public static FrecuentaId of(String id) {
         return new FrecuentaId(id);
     }
 }

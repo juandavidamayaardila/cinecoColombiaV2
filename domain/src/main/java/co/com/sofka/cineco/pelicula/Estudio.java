@@ -7,6 +7,7 @@ import co.com.sofka.domain.generic.Entity;
 public class Estudio extends Entity<EstudioId> {
 
     protected NombreEstudio nombreEstudio;
+
     public Estudio(EstudioId entityId, NombreEstudio nombreEstuio) {
         super(entityId);
         this.nombreEstudio = nombreEstuio;
@@ -16,7 +17,7 @@ public class Estudio extends Entity<EstudioId> {
         return nombreEstudio;
     }
 
-    public void actualizarNombreEstudio(NombreEstudio nombre){
+    public void actualizarNombreEstudio(NombreEstudio nombre) {
         this.nombreEstudio = nombre;
     }
 }

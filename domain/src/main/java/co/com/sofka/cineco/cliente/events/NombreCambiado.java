@@ -12,7 +12,7 @@ public class NombreCambiado extends DomainEvent {
     public NombreCambiado(IdentificacionCliente entityId, Nombre nombre) {
         super("sofka.cliente.nombrecambiado");
 
-        this.entityId =entityId;
+        this.entityId = entityId;
         this.nombre = nombre;
     }
 

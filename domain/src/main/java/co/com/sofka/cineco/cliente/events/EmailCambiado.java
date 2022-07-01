@@ -9,7 +9,7 @@ public class EmailCambiado extends DomainEvent {
     private final IdentificacionCliente entityId;
     private final Email email;
 
-    public EmailCambiado(IdentificacionCliente entityId, Email email){
+    public EmailCambiado(IdentificacionCliente entityId, Email email) {
         super("sofka.cliente.emailcambiado");
         this.entityId = entityId;
         this.email = email;

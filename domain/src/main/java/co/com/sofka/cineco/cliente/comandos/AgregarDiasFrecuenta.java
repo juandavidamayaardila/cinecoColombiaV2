@@ -11,7 +11,7 @@ public class AgregarDiasFrecuenta extends Command {
     private final FrecuentaId preferenciaId;
     private final DescripcionFrecuenta descripcionPreferencia;
 
-    public AgregarDiasFrecuenta(FrecuentaId entityId, DescripcionFrecuenta descripcionPreferencia){
+    public AgregarDiasFrecuenta(FrecuentaId entityId, DescripcionFrecuenta descripcionPreferencia) {
         this.preferenciaId = entityId;
         this.descripcionPreferencia = descripcionPreferencia;
     }

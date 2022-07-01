@@ -26,7 +26,6 @@ class CrearPeliculaUseCaseTest {
     @Test
     public void crearPelicula() {
 
-
         NombrePelicula nombre = new NombrePelicula("Rapido y furioso");
         Sinopsis sinopsis = new Sinopsis("Pelicula de accion y carreras de carros");
 
@@ -39,6 +38,6 @@ class CrearPeliculaUseCaseTest {
 
         var event = (PeliculaCreada) events.get(0);
         Assertions.assertEquals("Rapido y furioso", event.getNombre().value());
-
+        Assertions.assertEquals("Pelicula de accion y carreras de carros", event.getSinopsis().value());
     }
 }

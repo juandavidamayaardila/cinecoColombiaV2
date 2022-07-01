@@ -11,7 +11,7 @@ public class CrearCliente extends Command {
     private final Nombre nombre;
     private final Email email;
 
-    public CrearCliente(IdentificacionCliente entityId, Nombre nombre, Email email){
+    public CrearCliente(IdentificacionCliente entityId, Nombre nombre, Email email) {
         this.entityId = entityId;
         this.nombre = nombre;
         this.email = email;

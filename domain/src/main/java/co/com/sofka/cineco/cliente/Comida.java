@@ -18,7 +18,7 @@ public class Comida extends Entity<ComidaId> {
         return descripcionComida;
     }
 
-    public void actualizarDescripcionComida(DescripcionComida descripcionComida){
+    public void actualizarDescripcionComida(DescripcionComida descripcionComida) {
         this.descripcionComida = descripcionComida;
 
     }

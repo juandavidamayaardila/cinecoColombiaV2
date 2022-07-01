@@ -8,16 +8,14 @@ import co.com.sofka.domain.generic.EventChange;
 public class TarjetaCinecoChange extends EventChange {
     public TarjetaCinecoChange(TarjetaCineco tarjetaCineco) {
 
-        apply((TarjetaCinecoCreada event) ->{
+        apply((TarjetaCinecoCreada event) -> {
             tarjetaCineco.descripcion = event.getDescripcion();
             tarjetaCineco.estado = event.getEstado();
 
         });
 
-        apply((ActualizarEstadoTarjeta event) ->{
+        apply((ActualizarEstadoTarjeta event) -> {
             tarjetaCineco.estado = event.getEstado();
         });
-
-
     }
 }
