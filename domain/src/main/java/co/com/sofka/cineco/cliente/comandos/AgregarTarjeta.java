@@ -10,16 +10,22 @@ import co.com.sofka.cineco.tarjetacineco.values.TarjetaCinecoId;
 import co.com.sofka.domain.generic.Command;
 
 import java.util.List;
+import java.util.Set;
 
 public class AgregarTarjeta extends Command {
 
     private final IdentificacionCliente entityId;
 
-    private final TarjetaCinecoId  tarjetaCinecoId;
+    private Descripcion descripcion;
+    private Estado estado;
+    private List<Beneficio> beneficios;
 
-    public AgregarTarjeta(IdentificacionCliente entityId, TarjetaCinecoId tarjetaCinecoId){
+    public AgregarTarjeta(IdentificacionCliente entityId, Descripcion descripcion, Estado estado,
+                          List<Beneficio> beneficios){
         this.entityId = entityId;
-        this.tarjetaCinecoId = tarjetaCinecoId;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.beneficios = beneficios;
 
     }
 
@@ -27,7 +33,15 @@ public class AgregarTarjeta extends Command {
         return entityId;
     }
 
-    public TarjetaCinecoId getTarjetaCinecoId() {
-        return tarjetaCinecoId;
+    public Descripcion getDescripcion() {
+        return descripcion;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public List<Beneficio> getBeneficios() {
+        return beneficios;
     }
 }

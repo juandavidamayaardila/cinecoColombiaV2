@@ -4,10 +4,10 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Nombre implements ValueObject<String > {
+public class DescripcionIdioma implements ValueObject<String > {
     private final String value;
 
-    public Nombre(String value){
+    public DescripcionIdioma(String value){
         this.value = value;
 
         if(this.value.length() < 4){
@@ -17,15 +17,15 @@ public class Nombre implements ValueObject<String > {
 
     @Override
     public String value() {
-        return value;
+        return null;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Nombre nombre = (Nombre) o;
-        return Objects.equals(value, nombre.value);
+        DescripcionIdioma that = (DescripcionIdioma) o;
+        return Objects.equals(value, that.value);
     }
 
     @Override

@@ -5,6 +5,7 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.cineco.cliente.values.Nombre;
 import co.com.sofka.cineco.pelicula.comandos.CrearPelicula;
 import co.com.sofka.cineco.pelicula.events.PeliculaCreada;
+import co.com.sofka.cineco.pelicula.values.NombrePelicula;
 import co.com.sofka.cineco.pelicula.values.PeliculaId;
 import co.com.sofka.cineco.pelicula.values.Sinopsis;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +27,7 @@ class CrearPeliculaUseCaseTest {
     public void crearPelicula() {
 
 
-        Nombre nombre = new Nombre("Rapido y furioso");
+        NombrePelicula nombre = new NombrePelicula("Rapido y furioso");
         Sinopsis sinopsis = new Sinopsis("Pelicula de accion y carreras de carros");
 
         var command = new CrearPelicula(nombre, sinopsis);

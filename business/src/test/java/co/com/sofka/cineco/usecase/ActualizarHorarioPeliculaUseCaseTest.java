@@ -9,6 +9,7 @@ import co.com.sofka.cineco.cliente.values.Nombre;
 import co.com.sofka.cineco.pelicula.comandos.ActualizarHorarioPelicula;
 import co.com.sofka.cineco.pelicula.events.PeliculaCreada;
 import co.com.sofka.cineco.pelicula.values.Horario;
+import co.com.sofka.cineco.pelicula.values.NombrePelicula;
 import co.com.sofka.cineco.pelicula.values.PeliculaId;
 import co.com.sofka.cineco.pelicula.values.Sinopsis;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -53,7 +54,7 @@ class ActualizarHorarioPeliculaUseCaseTest {
 
     private List<DomainEvent> history() {
 
-        co.com.sofka.cineco.cliente.values.Nombre nombre = new Nombre("Its");
+        NombrePelicula nombre = new NombrePelicula("Its");
         Horario horario = new Horario("En la mañana");
         Sinopsis sinopsis = new Sinopsis("Pelicula no apta para niños");
 

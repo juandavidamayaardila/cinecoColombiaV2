@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Preferencia extends Entity<PreferenciaId> {
 
-    private  DescripcionPreferencia descripcionPreferencia;
+    protected   DescripcionPreferencia descripcionPreferencia;
 
     public Preferencia(PreferenciaId entityId, DescripcionPreferencia descripcionPreferencia) {
         super(entityId);

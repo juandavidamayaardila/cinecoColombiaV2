@@ -1,6 +1,7 @@
 package co.com.sofka.cineco.cliente;
 
 import co.com.sofka.cineco.cliente.events.*;
+import co.com.sofka.cineco.tarjetacineco.TarjetaCineco;
 import co.com.sofka.domain.generic.EventChange;
 
 public class ClienteChange extends EventChange {
@@ -16,7 +17,9 @@ public class ClienteChange extends EventChange {
         });
 
         apply((TarjetaAgregada event) ->{
-            cliente.tarjetaCineco = event.getTarjeta();
+            var tarjetaId = event.getTarjetaCinecoId();
+            var tarjeta = new TarjetaCineco(tarjetaId,event.getDescripcion(),event.getEstado(), event.getListBeneficio());
+            cliente.tarjetaCineco = tarjeta;
         });
 
         apply((PreferenciaAgregada event) ->{
